@@ -3,7 +3,7 @@
   height: 4rem;
   display: flex;
   align-items: center;
-  justify-content:left;
+  justify-content: left;
   background-color: #242f40;
 }
 
@@ -29,5 +29,5 @@
 .header a:active,
 .header a:active {
   color: #e5e5e5b4;
-  text-decoration:underline;
+  text-decoration: underline;
 }
