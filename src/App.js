@@ -12,7 +12,6 @@ const App = () => {
   return (
     <div className="background">
       <Navbar />
-      <h1>Hello and welcome to Movie Search!</h1>
       <Switch>
         <Route path="/" exact>
           <MovieSearch apiKey={apiKey} />
