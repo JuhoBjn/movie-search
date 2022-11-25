@@ -1,0 +1,21 @@
+.searchBar {
+  width: 100%;
+  text-align: center;
+}
+
+.searchBar input[type="text"] {
+  width: 40%;
+  padding: 12px 20px;
+  font-size: large;
+  margin: 1.5rem 0;
+  box-sizing: border-box;
+  border-radius: 0.3rem;
+  border-color: #CCA43B;  /* Satin Sheen Gold */
+}
+
+.searchBar button {
+  padding: 12px 20px;
+  margin-left: 1rem;
+  background-color: #CCA43B;  /* Sating Sheen Gold */
+  border-radius: 0.5rem;
+}
