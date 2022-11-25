@@ -19,3 +19,8 @@
   background-color: #CCA43B;  /* Sating Sheen Gold */
   border-radius: 0.5rem;
 }
+
+.searchBar button:hover,
+.searchBar button:active {
+  background-color: #b49035;
+}
