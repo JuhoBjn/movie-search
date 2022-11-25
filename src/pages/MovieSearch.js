@@ -11,9 +11,9 @@ const MovieSearch = (props) => {
 
     let searchTerm = titleRef.current.value;
     searchTerm = searchTerm.replace(/ /g, "+");
-    console.log(`http://www.omdbapi.com/?s=${searchTerm}&apikey=${props.apiKey}`);
+    //console.log(`http://www.omdbapi.com/?s=${searchTerm}&apikey=${props.apiKey}`);
     const response = await fetch(
-      `http://www.omdbapi.com/?s=${searchTerm}&apikey=${props.apiKey}`
+      `http://www.omdbapi.com/?s=${searchTerm}&type=movie&apikey=${props.apiKey}`
     );
     const data = await response.json();
     console.log(data.Search);
