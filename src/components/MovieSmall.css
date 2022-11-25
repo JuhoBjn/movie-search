@@ -13,8 +13,6 @@
 .moviePoster {
   float: left;
   display: flex;
-  flex-direction: row;
-  flex-grow: fit-content;
   margin-left: 0.5rem;
 }
 
