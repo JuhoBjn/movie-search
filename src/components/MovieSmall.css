@@ -6,21 +6,25 @@
   border-style: solid;
   border-width: 0.15rem;
   border-radius: 1rem;
-  width: 60%;
+  width: 50%;
   margin-bottom: 1rem;
 }
 
 .moviePoster {
   float: left;
+  display: flex;
+  flex-direction: row;
+  flex-grow: fit-content;
   margin-left: 0.5rem;
 }
 
 .moviePoster img {
   display: block;
-  width: 75%;
+  width: 40%;
   padding-top: 1rem;
   padding-bottom: 1rem;
   padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .movieContent {
