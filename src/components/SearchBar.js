@@ -1,6 +1,8 @@
+import "./SearchBar.css";
+
 const SearchBar = (props) => {
   return (
-    <>
+    <div className="searchBar">
       <form onSubmit={props.searchMoviesHandler}>
         <input
           type="text"
@@ -11,7 +13,7 @@ const SearchBar = (props) => {
         ></input>
         <button>Search</button>
       </form>
-    </>
+    </div>
   );
 };
 
