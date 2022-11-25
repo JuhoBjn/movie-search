@@ -4,6 +4,7 @@ import { useState, useRef } from "react";
 
 const MovieSearch = (props) => {
   const titleRef = useRef("");
+  const [loading, setLoading] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
 
   const searchMoviesHandler = async (event) => {
@@ -11,13 +12,15 @@ const MovieSearch = (props) => {
 
     let searchTerm = titleRef.current.value;
     searchTerm = searchTerm.replace(/ /g, "+");
-    //console.log(`http://www.omdbapi.com/?s=${searchTerm}&apikey=${props.apiKey}`);
+
+    setLoading(true);
     const response = await fetch(
       `http://www.omdbapi.com/?s=${searchTerm}&type=movie&apikey=${props.apiKey}`
     );
     const data = await response.json();
     console.log(data.Search);
     setSearchResults(data.Search);
+    setLoading(false);
   };
 
   return (
@@ -26,7 +29,11 @@ const MovieSearch = (props) => {
         searchMoviesHandler={searchMoviesHandler}
         titleRef={titleRef}
       />
-      <SearchResultsList searchResults={searchResults} />
+      {loading ? (
+        <h3 className="loadingText">Searching movies...</h3>
+      ) : (
+        <SearchResultsList searchResults={searchResults} />
+      )}
     </>
   );
 };
