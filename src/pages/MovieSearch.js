@@ -25,12 +25,21 @@ const MovieSearch = (props) => {
   };
 
   // Add movie to watchlist on Firebase.
-  const addWatchlistHandler = async (imdbID) => {
+  const addWatchlistHandler = async (props) => {
+    console.log(props);
+
+    const movie = {
+      title: props.title,
+      year: props.year,
+      imdbID: props.imdbID,
+      poster: props.poster,
+    };
+
     const response = await fetch(
       "https://movie-search-396da-default-rtdb.europe-west1.firebasedatabase.app/watchlist.json",
       {
         method: "POST",
-        body: JSON.stringify(imdbID),
+        body: JSON.stringify(movie),
         headers: {
           "Content-Type": "application/json",
         },
@@ -38,7 +47,7 @@ const MovieSearch = (props) => {
     );
     const data = await response.json();
     console.log(data);
-  }
+  };
 
   return (
     <>
