@@ -17,6 +17,11 @@ const Movie = (props) => {
     setShowFullInfo(true);
   };
 
+  // Minimize large search result.
+  const minimizeMovieInfoHandler = () => {
+    setShowFullInfo(false);
+  }
+
   let content;
   if (showFullInfo) {
     content = (
@@ -38,7 +43,12 @@ const Movie = (props) => {
           <p>Language: {movieFullInfo.Language}</p>
           <p>Country: {movieFullInfo.Country}</p>
           <p>Awards: {movieFullInfo.Awards}</p>
-          <button onClick={() => props.addWatchlistHandler(movieFullInfo.imdbID)}>Add to watchlist</button>
+          <button
+            onClick={() => props.addWatchlistHandler(movieFullInfo.imdbID)}
+          >
+            Add to watchlist
+          </button>
+          <button onClick={minimizeMovieInfoHandler}>Minimize</button>
         </div>
       </div>
     );
@@ -55,7 +65,9 @@ const Movie = (props) => {
           <h3>Released: {props.year}</h3>
           <p>Type: {props.type}</p>
           <button onClick={moreInfoHandler}>More info</button>
-          <button onClick={() => props.addWatchlistHandler(props.imdbID)}>Add to watchlist</button>
+          <button onClick={() => props.addWatchlistHandler(props.imdbID)}>
+            Add to watchlist
+          </button>
         </div>
       </div>
     );
