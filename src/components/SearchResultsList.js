@@ -12,6 +12,7 @@ const SearchResultsList = (props) => {
           poster={result.Poster}
           imdbID={result.imdbID}
           apiKey={props.apiKey}
+          addWatchlistHandler={props.addWatchlistHandler}
         />
       ))}
     </ul>
