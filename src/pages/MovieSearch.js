@@ -7,6 +7,7 @@ const MovieSearch = (props) => {
   const [loading, setLoading] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
 
+  // Search movies with title entered in titleRef.
   const searchMoviesHandler = async (event) => {
     event.preventDefault();
 
@@ -32,7 +33,10 @@ const MovieSearch = (props) => {
       {loading ? (
         <h3 className="loadingText">Searching movies...</h3>
       ) : (
-        <SearchResultsList searchResults={searchResults} />
+        <SearchResultsList
+          searchResults={searchResults}
+          apiKey={props.apiKey}
+        />
       )}
     </>
   );
