@@ -43,8 +43,8 @@ const Movie = (props) => {
           <p>Language: {movieFullInfo.Language}</p>
           <p>Country: {movieFullInfo.Country}</p>
           <p>Awards: {movieFullInfo.Awards}</p>
-          <button onClick={() => props.addWatchlistHandler(props)}>
-            Add to watchlist
+          <button onClick={() => props.watchlistActionHandler(props)}>
+            {props.watchlistActionText}
           </button>
           <button onClick={minimizeMovieInfoHandler}>Minimize</button>
         </div>
@@ -62,8 +62,8 @@ const Movie = (props) => {
           <h2>{props.title}</h2>
           <h3>Released: {props.year}</h3>
           <button onClick={moreInfoHandler}>More info</button>
-          <button onClick={() => props.addWatchlistHandler(props)}>
-            Add to watchlist
+          <button onClick={() => props.watchlistActionHandler(props)}>
+            {props.watchlistActionText}
           </button>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import SearchBar from "../components/SearchBar";
-import SearchResultsList from "../components/SearchResultsList";
+import MoviesList from "../components/MoviesList";
 import { useState, useRef } from "react";
 
 const MovieSearch = (props) => {
@@ -58,9 +58,10 @@ const MovieSearch = (props) => {
       {loading ? (
         <h3 className="loadingText">Searching movies...</h3>
       ) : (
-        <SearchResultsList
+        <MoviesList
           searchResults={searchResults}
-          addWatchlistHandler={addWatchlistHandler}
+          watchlistActionText={"Add to watchlist"}
+          watchlistActionHandler={addWatchlistHandler}
           apiKey={props.apiKey}
         />
       )}

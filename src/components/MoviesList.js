@@ -1,6 +1,6 @@
-import Movie from "../components/Movie";
+import Movie from "./Movie";
 
-const SearchResultsList = (props) => {
+const MoviesList = (props) => {
   return (
     <ul>
       {props.searchResults.map((result) => (
@@ -12,11 +12,12 @@ const SearchResultsList = (props) => {
           poster={result.Poster}
           imdbID={result.imdbID}
           apiKey={props.apiKey}
-          addWatchlistHandler={props.addWatchlistHandler}
+          watchlistActionText={props.watchlistActionText}
+          watchlistActionHandler={props.watchlistActionHandler}
         />
       ))}
     </ul>
   );
 };
 
-export default SearchResultsList;
+export default MoviesList;
