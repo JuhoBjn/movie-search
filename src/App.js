@@ -17,7 +17,7 @@ const App = () => {
           <MovieSearch apiKey={apiKey} />
         </Route>
         <Route path="/watchlist">
-          <Watchlist />
+          <Watchlist apiKey={apiKey} />
         </Route>
       </Switch>
     </div>

@@ -1,5 +1,5 @@
 import SearchBar from "../components/SearchBar";
-import MoviesList from "../components/MoviesList";
+import SearchResultsList from "../components/SearchResultsList";
 import { useState, useRef } from "react";
 
 const MovieSearch = (props) => {
@@ -19,8 +19,20 @@ const MovieSearch = (props) => {
       `http://www.omdbapi.com/?s=${searchTerm}&type=movie&apikey=${props.apiKey}`
     );
     const data = await response.json();
-    console.log(data.Search);
-    setSearchResults(data.Search);
+
+    const fetchedResults = [];
+
+    for (const key in data.Search) {
+      fetchedResults.push({
+        title: data.Search[key].Title,
+        year: data.Search[key].Year,
+        imdbID: data.Search[key].imdbID,
+        poster: data.Search[key].Poster,
+      });
+    }
+
+    console.log(fetchedResults);
+    setSearchResults(fetchedResults);
     setLoading(false);
   };
 
@@ -58,10 +70,9 @@ const MovieSearch = (props) => {
       {loading ? (
         <h3 className="loadingText">Searching movies...</h3>
       ) : (
-        <MoviesList
-          searchResults={searchResults}
-          watchlistActionText={"Add to watchlist"}
-          watchlistActionHandler={addWatchlistHandler}
+        <SearchResultsList
+          movies={searchResults}
+          addWatchlistHandler={addWatchlistHandler}
           apiKey={props.apiKey}
         />
       )}
