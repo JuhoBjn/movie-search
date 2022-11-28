@@ -1,9 +1,22 @@
-import { useEffect, useState } from "react";
+import Modal from "../components/Modal";
+import Backdrop from "../components/Backdrop";
 import WatchlistMoviesList from "../components/WatchlistMoviesList";
+import { useEffect, useState } from "react";
 
 const Watchlist = (props) => {
   const [watchlist, setWatchlist] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [movieToRemove, setMovieToRemove] = useState([]);
+
+  const showModalHandler = (movie) => {
+    setMovieToRemove(movie);
+    setShowModal(true);
+  };
+
+  const declineModalHandler = () => {
+    setShowModal(false);
+  };
 
   // Fetch watchlist from Firebase.
   const fetchWatchlist = async () => {
@@ -24,20 +37,23 @@ const Watchlist = (props) => {
         imdbID: data[key].imdbID,
       });
     }
-    console.log(fetchedWatchlist);
+
     setWatchlist(fetchedWatchlist);
     setLoading(false);
   };
 
-  const removeFromWatchlistHandler = async (props) => {
+  const removeFromWatchlistHandler = async () => {
+    setShowModal(false);
+
     const response = await fetch(
-      `https://movie-search-396da-default-rtdb.europe-west1.firebasedatabase.app/watchlist/${props.dbID}.json`,
+      `https://movie-search-396da-default-rtdb.europe-west1.firebasedatabase.app/watchlist/${movieToRemove.dbID}.json`,
       {
         method: "DELETE",
       }
     );
     const data = response.json();
     console.log(data);
+    setMovieToRemove(null);
     fetchWatchlist();
   };
 
@@ -52,10 +68,17 @@ const Watchlist = (props) => {
       ) : (
         <WatchlistMoviesList
           movies={watchlist}
-          removeFromWatchlistHandler={removeFromWatchlistHandler}
+          removeFromWatchlistHandler={showModalHandler}
           apiKey={props.apiKey}
         />
       )}
+      {showModal && (
+        <Modal
+          onDecline={declineModalHandler}
+          onConfirm={removeFromWatchlistHandler}
+        />
+      )}
+      {showModal ? <Backdrop onClick={declineModalHandler} /> : null}
     </>
   );
 };
