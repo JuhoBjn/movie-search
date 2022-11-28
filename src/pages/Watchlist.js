@@ -30,8 +30,15 @@ const Watchlist = (props) => {
   };
 
   const removeFromWatchlistHandler = async (props) => {
-    console.log("Remove from watchlist clicked.");
-    console.log(props);
+    const response = await fetch(
+      `https://movie-search-396da-default-rtdb.europe-west1.firebasedatabase.app/watchlist/${props.dbID}.json`,
+      {
+        method: "DELETE",
+      }
+    );
+    const data = response.json();
+    console.log(data);
+    fetchWatchlist();
   };
 
   useEffect(() => {

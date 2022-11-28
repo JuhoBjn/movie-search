@@ -43,10 +43,10 @@ const Movie = (props) => {
           <p>Language: {movieFullInfo.Language}</p>
           <p>Country: {movieFullInfo.Country}</p>
           <p>Awards: {movieFullInfo.Awards}</p>
+          <button onClick={minimizeMovieInfoHandler}>Minimize</button>
           <button onClick={() => props.watchlistActionHandler(props)}>
             {props.watchlistActionText}
           </button>
-          <button onClick={minimizeMovieInfoHandler}>Minimize</button>
         </div>
       </div>
     );
