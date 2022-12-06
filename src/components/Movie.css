@@ -52,6 +52,9 @@
   margin-right: 1rem;
 }
 
+/*  Get movie titles to align in bubbles consistently.  */
+
+
 /*  Style for movie info on large search results.  */
 .movieContentLarge {
   margin-left: 1rem;
@@ -63,6 +66,11 @@ button {
   margin-bottom: 1rem;
   margin-left: 1rem;
   margin-right: 1rem;
-  background-color: #cca43b; /* Sating Sheen Gold */
+  background-color: #cca43b; /* Satin Sheen Gold */
   border-radius: 0.5rem;
+}
+
+button:hover,
+button:active {
+  background-color: #b49035;
 }
