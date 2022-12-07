@@ -2,12 +2,16 @@ import Config from "./config.json";
 import Navbar from "./components/Navbar";
 import MovieSearch from "./pages/MovieSearch";
 import Watchlist from "./pages/Watchlist";
+import { useEffect, useState } from "react";
 import { Route, Switch } from "react-router-dom";
 
 import "./App.css";
 
 const App = () => {
-  const apiKey = Config.APIKEY;
+  const [apiKey, setApiKey] = useState("");
+  useEffect(() => {
+    setApiKey(Config.APIKEY);
+  }, []);
 
   return (
     <div className="background">
