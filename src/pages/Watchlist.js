@@ -68,7 +68,7 @@ const Watchlist = (props) => {
       ) : (
         <WatchlistMoviesList
           movies={watchlist}
-          removeFromWatchlistHandler={showModalHandler}
+          showModalHandler={showModalHandler}
           apiKey={props.apiKey}
         />
       )}

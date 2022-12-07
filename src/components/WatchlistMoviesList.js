@@ -15,7 +15,7 @@ const WatchlistMoviesList = (props) => {
           imdbID={movie.imdbID}
           apiKey={props.apiKey}
           watchlistActionText={"Remove from watchlist"}
-          watchlistActionHandler={props.removeFromWatchlistHandler}
+          watchlistActionHandler={props.showModalHandler}
         />
       ))}
     </ul>
