@@ -22,4 +22,8 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# configuration with API key
 config.json
+
+# Firebase directory
+.firebase
