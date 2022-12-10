@@ -9,7 +9,7 @@ const Movie = (props) => {
   const moreInfoHandler = async () => {
     console.log(`Fetching more info for: ${props.imdbID}`);
     const response = await fetch(
-      `http://www.omdbapi.com/?i=${props.imdbID}&plot=full&apikey=${props.apiKey}`
+      `https://www.omdbapi.com/?i=${props.imdbID}&plot=full&apikey=${props.apiKey}`
     );
     const data = await response.json();
     console.log(data);

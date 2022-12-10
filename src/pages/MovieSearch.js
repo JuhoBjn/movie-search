@@ -16,7 +16,7 @@ const MovieSearch = (props) => {
 
     setLoading(true);
     const response = await fetch(
-      `http://www.omdbapi.com/?s=${searchTerm}&type=movie&apikey=${props.apiKey}`
+      `https://www.omdbapi.com/?s=${searchTerm}&type=movie&apikey=${props.apiKey}`
     );
     const data = await response.json();
 
