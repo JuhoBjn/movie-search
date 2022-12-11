@@ -5,7 +5,7 @@ const Movie = (props) => {
   const [movieFullInfo, setMovieFullInfo] = useState([]);
   const [showFullInfo, setShowFullInfo] = useState(false);
 
-  // Fetch more info on select movie.
+  // Fetch more info on selected movie.
   const moreInfoHandler = async () => {
     console.log(`Fetching more info for: ${props.imdbID}`);
     const response = await fetch(
@@ -22,6 +22,7 @@ const Movie = (props) => {
     setShowFullInfo(false);
   };
 
+  // Define large and small versions of movie to show.
   let content;
   if (showFullInfo) {
     content = (

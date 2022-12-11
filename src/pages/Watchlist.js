@@ -25,7 +25,6 @@ const Watchlist = (props) => {
       "https://movie-search-396da-default-rtdb.europe-west1.firebasedatabase.app/watchlist.json"
     );
     const data = await response.json();
-
     const fetchedWatchlist = [];
 
     for (const key in data) {
@@ -42,6 +41,7 @@ const Watchlist = (props) => {
     setLoading(false);
   };
 
+  // Remove a movie from watchlist on Firebase.
   const removeFromWatchlistHandler = async () => {
     setShowModal(false);
 

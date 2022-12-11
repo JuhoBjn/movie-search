@@ -10,13 +10,13 @@
   margin: 1.5rem 0;
   box-sizing: border-box;
   border-radius: 0.3rem;
-  border-color: #CCA43B;  /* Satin Sheen Gold */
+  border-color: #cca43b; /* Satin Sheen Gold */
 }
 
 .searchBar button {
   padding: 12px 20px;
   margin-left: 1rem;
-  background-color: #CCA43B;  /* Sating Sheen Gold */
+  background-color: #cca43b; /* Sating Sheen Gold */
   border-radius: 0.5rem;
 }
 

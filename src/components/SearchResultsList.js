@@ -1,8 +1,8 @@
 import Movie from "./Movie";
 
 const SearchResultsList = (props) => {
-  // Key is to make React shut up about children in the list not having a key.
-  // "key" won't actually be received by child component since it's
+  // 'key' is to make React shut up about children in the list not having a key.
+  // 'key' won't actually be received by child component since it's
   // a special prop used by React.
   return (
     <ul>

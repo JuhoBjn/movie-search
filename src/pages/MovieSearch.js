@@ -9,19 +9,19 @@ const MovieSearch = (props) => {
 
   // Search movies with title entered in titleRef.
   const searchMoviesHandler = async (event) => {
-    event.preventDefault();
+    event.preventDefault(); // Prevent default behaviour of submitting a form.
 
     let searchTerm = titleRef.current.value;
+    // Replace all spaces in search term with '+'.
     searchTerm = searchTerm.replace(/ /g, "+");
 
-    setLoading(true);
+    setLoading(true); // Show loading text.
     const response = await fetch(
       `https://www.omdbapi.com/?s=${searchTerm}&type=movie&apikey=${props.apiKey}`
     );
     const data = await response.json();
 
     const fetchedResults = [];
-
     for (const key in data.Search) {
       fetchedResults.push({
         title: data.Search[key].Title,
@@ -33,7 +33,7 @@ const MovieSearch = (props) => {
 
     console.log(fetchedResults);
     setSearchResults(fetchedResults);
-    setLoading(false);
+    setLoading(false);  // Remove loading text.
   };
 
   // Add movie to watchlist on Firebase.
