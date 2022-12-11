@@ -14,6 +14,7 @@ const Navbar = () => {
           </li>
         </ul>
       </nav>
+      <h2>Movie Search</h2>
     </header>
   );
 };
