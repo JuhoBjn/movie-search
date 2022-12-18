@@ -7,13 +7,30 @@ const Movie = (props) => {
 
   // Fetch more info on selected movie.
   const moreInfoHandler = async () => {
-    console.log(`Fetching more info for: ${props.imdbID}`);
-    const response = await fetch(
-      `https://www.omdbapi.com/?i=${props.imdbID}&plot=full&apikey=${props.apiKey}`
-    );
-    const data = await response.json();
-    console.log(data);
-    setMovieFullInfo(data);
+    if (Object.values(movieFullInfo).length === 0) {
+      const response = await fetch(
+        `https://www.omdbapi.com/?i=${props.imdbID}&plot=full&apikey=${props.apiKey}`
+      );
+      const data = await response.json();
+
+      const fetchedMovieData = {
+        title: data.Title,
+        poster: data.Poster,
+        director: data.Director,
+        released: data.Released,
+        runtime: data.Runtime,
+        genre: data.Genre,
+        writer: data.Writer,
+        actors: data.Actors,
+        plot: data.Plot,
+        language: data.Language,
+        country: data.Country,
+        awards: data.Awards,
+      };
+
+      setMovieFullInfo(fetchedMovieData);
+    }
+
     setShowFullInfo(true);
   };
 
@@ -27,23 +44,23 @@ const Movie = (props) => {
   if (showFullInfo) {
     content = (
       <div className="movieLarge">
-        {movieFullInfo.Poster !== "N/A" && (
+        {movieFullInfo.poster !== "N/A" && (
           <div className="moviePosterLarge">
-            <img src={movieFullInfo.Poster} alt="Poster" />
+            <img src={movieFullInfo.poster} alt="Poster" />
           </div>
         )}
         <div className="movieContentLarge">
-          <h2>{movieFullInfo.Title}</h2>
-          <h3>Director: {movieFullInfo.Director}</h3>
-          <p>Released: {movieFullInfo.Released}</p>
-          <p>Runtime: {movieFullInfo.Runtime}</p>
-          <p>Genre: {movieFullInfo.Genre}</p>
-          <p>Writer: {movieFullInfo.Writer}</p>
-          <p>Actors: {movieFullInfo.Actors}</p>
-          <p>Plot: {movieFullInfo.Plot}</p>
-          <p>Language: {movieFullInfo.Language}</p>
-          <p>Country: {movieFullInfo.Country}</p>
-          <p>Awards: {movieFullInfo.Awards}</p>
+          <h2>{movieFullInfo.title}</h2>
+          <h3>Director: {movieFullInfo.director}</h3>
+          <p>Released: {movieFullInfo.released}</p>
+          <p>Runtime: {movieFullInfo.runtime}</p>
+          <p>Genre: {movieFullInfo.genre}</p>
+          <p>Writer: {movieFullInfo.writer}</p>
+          <p>Actors: {movieFullInfo.actors}</p>
+          <p>Plot: {movieFullInfo.plot}</p>
+          <p>Language: {movieFullInfo.language}</p>
+          <p>Country: {movieFullInfo.country}</p>
+          <p>Awards: {movieFullInfo.awards}</p>
           <button onClick={minimizeMovieInfoHandler}>Minimize</button>
           <button onClick={() => props.watchlistActionHandler(props)}>
             {props.watchlistActionText}
