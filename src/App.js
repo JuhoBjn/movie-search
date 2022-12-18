@@ -11,7 +11,14 @@ const App = () => {
   const [apiKey, setApiKey] = useState("");
 
   useEffect(() => {
-    setApiKey(Config.APIKEY);
+    try {
+      if(Config.APIKEY === undefined)
+        throw new Error('Could not fetch API key from config.json');
+      setApiKey(Config.APIKEY);
+    }
+    catch(e) {
+      console.error(`${e.name}: ${e.message}`);
+    }
   }, []);
 
   return (
